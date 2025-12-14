@@ -129,10 +129,12 @@
 		display: flex;
 		flex-direction: column;
 		height: 100vh;
+		height: 100dvh;
 		max-width: 800px;
 		margin: 0 auto;
 		background: white;
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+		position: relative;
 	}
 
 	.chat-header {
@@ -174,8 +176,11 @@
 	.chat-container {
 		flex: 1;
 		overflow-y: auto;
+		overflow-x: hidden;
 		padding: 1.5rem;
 		background: #f8f9fa;
+		min-height: 0;
+		-webkit-overflow-scrolling: touch;
 	}
 
 	.welcome-message {
@@ -243,6 +248,7 @@
 		padding: 1rem 1.5rem;
 		background: white;
 		border-top: 1px solid #dee2e6;
+		flex-shrink: 0;
 	}
 
 	textarea {
@@ -296,12 +302,22 @@
 			box-shadow: none;
 		}
 
+		.chat-header {
+			flex-shrink: 0;
+		}
+
 		.chat-header h1 {
 			font-size: 1.25rem;
 		}
 
 		.input-container {
 			padding: 0.75rem;
+			position: sticky;
+			bottom: 0;
+		}
+
+		textarea {
+			font-size: 16px;
 		}
 
 		button {
